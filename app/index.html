@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en" class="js">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="icon" href="favicon.ico" type="image/ico">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto:900" rel="stylesheet">
+             
+    <!-- build:css css/combined.css -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"> 
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+      <!-- endbuild -->   
+
+    <!-- build:js js/combined.js async-->
+    <script type="text/javascript" src="js/modernizr.js"></script>   
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script> 
+    <script type="text/javascript" src="js/jquery.validate.min.js"></script>
+     <!-- endbuild -->
+
+     <script type="text/javascript">
+
+      jQuery(document).ready(function(){
+        jQuery('input[type="radio"]').on('click', function(){
+          console.log('checked');
+          if( jQuery('#c1').is(':checked') ) { 
+            jQuery('.yes').slideDown();
+          }else {
+            jQuery('.yes').slideUp();
+          }
+        });
+
+
+        var Ww = jQuery(window).width();
+        if(Ww >= 1100) {
+          var bfHeight = function(){
+             var docH = jQuery('.middle').height();
+            jQuery('.bg').css('height', docH +'px' );
+          }
+          bfHeight();
+        }
+
+        jQuery(document).on('resize', function(){
+          bfHeight();
+        })
+      });
+     </script>
+    
+    <!--[if lte IE 9]>
+      <script async src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script async src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+     <title>American Express &reg; Merchant Financing –– Turn up the volume and get business done</title>
+
+</head>
+<body class="amex">
+
+  <header class="row">
+    <div class="col-xs-10 col-sm-4 col-md-3 center-block">
+      <img class="logo" alt="amex logo" src="images/amex-logo.png">
+    </div>
+  </header>
+
+  <main class="container-fluid">
+    <div class="row">
+      <div class="hidden-xs hidden-sm visible-md-4 col-md-4 bg">&nbsp;</div>
+      <div class="form-check middle col-xs-12 col-sm-12 col-md-4">
+
+        <div class="inner">
+
+        <div class="header">
+          <img src="images/headline.png" alt="turn up the volume">
+          <p>and get business done.</p>
+        </div>
+
+        <p class="p1">Stay in tune with your business goals and download 10 FREE songs of your choice now compliments of American  Express <sup>&reg;</sup>  Merchant Financing.</p>
+        <p class="p2">And don’t miss a beat — Let us know if you would like to schedule an in-person meeting with one of our specialists. You’ll learn more about the value Merchant Financing can offer your business and receive a pair of Powerbeats3 Wireless earphones to thank you for your time.</p>
+
+        <form>
+
+          <p>Choose an option before proceeding</p>
+        
+          <div class="form-check col-xs-12 center-block">
+            <input type="radio" id="c1" name="cc" class="form-check-input"/>
+            <label for="c1" class="form-check-label"><span></span>Yes, I am interested in a meeting</label>
+          </div>
+
+          <div class="col-xs-12 yes">
+              <span class="msg">Please Enter Your Code</span>
+              <label>Please enter your redemption code <br>
+found on the back of the download card</label>
+              <input type="text" name="code" id="code" class="form-control">
+          </div>
+
+          <div class="form-check col-xs-12 center-block">
+            <input type="radio" id="c2" name="cc" class="form-check-input"/>
+            <label for="c2" class="form-check-label"><span></span>No thanks, perhaps another time</label>
+          </div>
+
+          <div class="col-xs-12 center-block button">
+              <button type="submit" class="btn form-control">Download songs</button>
+          </div>
+
+        </form>
+
+        <p class="addnl">Please note that after clicking download songs, you will be leaving this site and redirected to TrueTrax to download your music.</p>
+        <ul>
+            <li><a target="_blank" href="https://www.americanexpress.com/us/content/legal-disclosures/website-rules-and-regulations.html?inav=footer_Terms_of_Use">Terms and Conditions</a></li>
+            <li><a target="_blank" href="https://www.americanexpress.com/us/content/legal-disclosures/privacy-center.html?inav=footer_privacy_statement">Privacy Policy</a></li>
+            <li><a target="_blank" href="https://prizelabs.zendesk.com/hc/en-us">Customer Support</a></li>
+            <li><a target="_blank" href="https://merchantfinancing.americanexpress.com/merchantfinancing/index.htm">American Express Merchant Financing</a></li>
+        </ul>
+        </div>
+      </div>
+      <div class="hidden-xs hidden-sm visible-md-4 col-md-4 bg">&nbsp;</div>
+    </div>
+       
+  </main>
+</body>
+</html>

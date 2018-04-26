@@ -1,0 +1,77 @@
+
+$body-text: 'Open Sans', sans-serif;
+
+@mixin body-font{ 
+	color: $body-font-color;
+	font-family: $body-font;
+	font-size: 53px;
+	font-weight: normal;
+	webkit-font-smoothing: smooth;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+    @include mq(tablet-wide){
+        font-size: 65px;
+    }
+
+    @include mq(sm-comp){
+        font-size: 72px;
+    }
+}
+
+@mixin transition ($value) {
+     -moz-transition: $value;
+       -o-transition: $value;
+      -ms-transition: $value;
+  -webkit-transition: $value;
+          transition: $value;
+}
+
+$breakpoints: (
+    "phone":        400px,
+    "phone-wide":   480px,
+    "phablet":       560px,
+    "tablet-small": 640px,
+    "tablet":       768px,
+    "tablet-wide":  1024px,
+    "sm-comp":      1100px,
+    "desktop":      1248px,
+    "laptop":       1320px,
+    "desktop-wide": 1440px,
+    "monitor":      1600px
+);
+
+@mixin mq($width, $type: min) {
+    @if map_has_key($breakpoints, $width) {
+        $width: map_get($breakpoints, $width);
+        @if $type == max {
+            $width: $width - 1px;
+        }
+        @media only screen and (#{$type}-width: $width) {
+            @content;
+        }
+    }
+}
+
+
+/// Stroke font-character
+/// @param  {Integer} $stroke - Stroke width
+/// @param  {Color}   $color  - Stroke color
+/// @return {List}            - text-shadow list
+@function stroke($stroke, $color) {
+  $shadow: ();
+  $from: $stroke*-1;
+  @for $i from $from through $stroke {
+   @for $j from $from through $stroke {
+      $shadow: append($shadow, $i*1px $j*1px 0 $color, comma);
+    }
+  }
+  @return $shadow;
+}
+/// Stroke font-character
+/// @param  {Integer} $stroke - Stroke width
+/// @param  {Color}   $color  - Stroke color
+/// @return {Style}           - text-shadow
+@mixin stroke($stroke, $color) {
+  text-shadow: stroke($stroke, $color);
+}
